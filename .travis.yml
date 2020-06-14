@@ -1,2 +1,6 @@
 language: java
 jdk: oraclejdk11
+
+script:
+  - ./gradlew clean check
+  - ./gradlew jacocoTestReport sonarqube
