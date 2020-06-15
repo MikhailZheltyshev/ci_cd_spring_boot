@@ -33,12 +33,17 @@ dependencies {
 	}
 }
 
+def exclusions = [
+        "com/mike/**/**Application**"
+]
+
 sonarqube {
 	properties {
 		property "sonar.projectName", "my-test-project"
 		property "sonar.projectKey", "ci_cd_spring_boot"
 		property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
 		property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+		property "sonar.coverage.exclusions", exclusions.join(",")
 	}
 }
 
@@ -48,12 +53,13 @@ test {
 
 jacocoTestReport {
 	reports {
+		html.enabled true
 		xml.enabled true
 	}
 
 	afterEvaluate {
 		classDirectories.from = files(classDirectories.files.collect {
-			fileTree(dir: it, exclude: 'com/mike/**/**Application**')
+			fileTree(dir: it, exclude: exclusions)
 		})
 	}
 }
@@ -69,7 +75,7 @@ jacocoTestCoverageVerification {
 
 	afterEvaluate {
 		classDirectories.from = files(classDirectories.files.collect {
-			fileTree(dir: it, exclude: 'com/mike/**/**Application**')
+			fileTree(dir: it, exclude: exclusions)
 		})
 	}
 }
