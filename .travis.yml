@@ -30,5 +30,6 @@ script:
   - ./gradlew bootJar
 
 deploy:
+  skip_cleanup: true
   provider: script
   script: bash deploy_to_aws.sh
