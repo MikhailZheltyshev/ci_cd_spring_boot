@@ -9,11 +9,20 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
+env:
+  global:
+    - secure: "bNn+GyQhVqqKiM2DMNYFixxRSASFjDlwizqVlPO+OBUCHG2zYYN+NtTocT7/gmuRBMEB71wpCyfUpa4ZWmdxSqYQXQGg9P38YozUm2x3xYcC24oB4EL8WN44gbDQ
+        EHftUVRSlQOJO02u+CgXqMJAUc8o1hrPSYDvBk7FBGDiTYo6mqeMJQPC12QGBUj3ezvP59hceJ3koDu8Lc56OTmcl7kEp2tH0/Fs1gUhBOy3+oaZIvatEnLe9TWDt03UTeBSEx5
+        7JbQW1haWquGQWg7VjMIMBe9DEuVwXBEdttc4zBVzIzSOAwpFEqR3JwB4EdO4Jwn9Z31Ca+Gc8/FTxRhjnWGN+eQ3TrCFxnJYRY0GTl0LstEp34ZbZxTep16rT1V/+Dad5FmpaZ
+        kXLQ3eZkSmiamTNkzfoJsa4jO5HUZZG085MkzAVGdktbZD/1uUFZ9rjxkpdo4j9P+dp5LxSxllYMSmrnBoOBwTwfIByMrXRwQkjf31xYNACQi8QQn2kNjnnNmzK52lkOR4eX6t8
+        arg3fxwp3mNzgW5I/Eo0ntttuQpMXLtkCHurZyZTKYkpO8caI5JyDuqjajrSFJbA7uXoj60uHvBgrFaOrwL7K3CkulRe5abOnN2z+7NfScJ2KHACP9Z7b5b5u2Tu/Jgq+e4yzmX
+        3oTL5nNCjMKwqSC7CK0="
+
 addons:
   sonarcloud:
     organization: mikhailzheltyshev
     token:
-      secure: "YGm6J3mZ7NwwttwPa7hOtJFZnstbYExQl35AunuRWa/Wm2Csi7149Qkyp1xekglRW/DAZzNGeR47W4GL3VZ1v2fsPK6JiT3M2bVKw/VgqGoYiZfsu7g7kkfpvcFTmwiKj2VWYiIYkbEJPzjPG0YzD/Owh0u6DX2n8ByDxO+xEKNqXZylucJ3zgC9GMQrVzmbCeEs5e2o9/Ln1eBtdpvtQjeguVhHrxY+OabCSwBViXR9uwVmva72Eu6a0F0d6N0Tw1Upf4prKXYUSNZhvz5oN9pxnsImq6mZdkedesfCCG3rHV+Hj61K6XjxWd6uo4iGoyskTkOfpUJIrJseYWmt59lvsWzTVFsxdhQAvmxOe+uO5QSiz+2XW7hmBA/t9XFOZV+x9beNMZCYbGUOU7qfTiZl+5BaUqB14dS3S8fMYC7bnX09nGke5aX4RsVJ9toX8yVRyrGn8Lc2KrQUqLMadCK0IB/DpHbHvTvOOucD89Q4z4VzFb1u7OEcppIu/qXRQU757lVdPjucJojt3ygSdv1siPkzaWBQ0HOm1OWsA7EIJYnCc4L87R0TaCu0MLCs2gMUMXak0QJ4hZ8O21wjQV3WiTJmii3XO/bzF/tCcZOgWFfplyUGcrPjuB7Lcw/2AzqNr9P0ZLsqhNeSqVYWYWp+uvP8PZiUi2ipi1Vniq0="
+      secure: $SONAR_TOKEN
 
 script:
   - ./gradlew clean check
