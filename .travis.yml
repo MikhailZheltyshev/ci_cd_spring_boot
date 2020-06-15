@@ -9,20 +9,16 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
-env:
-  global:
-    - secure: "VB5LEPtULU++a1Cl0sQ8u22WLyK4QIqYtlDcmTCbW42P2DVcHwGTbZE7Xdi1c3XDUfhW6Bx0XSB019tu+lHSia94w01H+CpLy88ua90gI9jSy/eNu5dB2EQgpQKi
+addons:
+  sonarcloud:
+    organization: mikhailzheltyshev
+    token:
+      secure: "VB5LEPtULU++a1Cl0sQ8u22WLyK4QIqYtlDcmTCbW42P2DVcHwGTbZE7Xdi1c3XDUfhW6Bx0XSB019tu+lHSia94w01H+CpLy88ua90gI9jSy/eNu5dB2EQgpQKi
                jrzAjnI+aG+SugAUEtvbKPt2I0b7Vj7kjDdq/8CasbpbUlWDZm19LugK4fEvhumyN+G8oZlx+p4rLoTh5PI/NADNTkv322Hg/8hqk24x00Z0XuJgoof/z+BI57Xy+TGUvyDaP6u
                Xwtw7ewLLi3urkZCXehoSfZKfu5as/MS6MKhfpU0myN/8hSj6Px1SEx8mj9q8oQL6UwK2ePpQYFWqcC3EU8aSMppIUyXGDA/mVTSBYTXH6dc0/lBWcmzPQ3W2XbcT/wE4q10KEu
                T9Yzj1nZ64j90ZcLtE97Z0z2x7L7BdfviEQ0F+iv6fSUxZO2qSSORZpMjSWkDOXKhZmwwP+KM9wvcPucfZnB6w7Qfu6dPUlgN2rMdBYxs7QV2wnRihKj7l2rgvclcqRONHRkySQ
                b6ZHYjIwdx3SMo4OsMURxpegVyi04g8fJfcF625py4EmgAOpSkvrShjnQe2gIaF3SESqLG3YzNSEXB4bciu9+q88LLpt7VuF0D5adkiqC6UVKcKSShN3EMlTxCOPm2dhdLMlN4M
                TxlnPqll84VYXUx85Mg="
-
-addons:
-  sonarcloud:
-    organization: mikhailzheltyshev
-    token:
-      secure: $SONAR_TOKEN
 
 script:
   - ./gradlew clean check
