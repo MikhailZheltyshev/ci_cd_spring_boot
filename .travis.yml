@@ -21,9 +21,7 @@ env:
 addons:
   sonarcloud:
     organization: mikhailzheltyshev
-    token:
-      secure: $SONAR_TOKEN
 
 script:
   - ./gradlew clean check
-  - ./gradlew jacocoTestReport sonarqube
+  - ./gradlew jacocoTestReport sonarqube -Dsonar.login=${SONAR_TOKEN}
