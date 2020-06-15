@@ -28,4 +28,4 @@ script:
   - ./gradlew clean check
   - ./gradlew jacocoTestReport sonarqube
   - ./gradlew bootJar
-  - ./deploy_to_aws
+  - ./deploy_to_aws.sh
