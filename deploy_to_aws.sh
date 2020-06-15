@@ -8,7 +8,7 @@ pip install --user awscli
 export PATH=$PATH:$HOME/.local/bin
 
 # login to AWS ECR
-eval $(aws ecr get-login --region eu-north-1)
+eval $(aws ecr get-login --no-include-email --region eu-north-1)
 
 # prepare docker image
 export TAG=$(if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo "$TRAVIS_BRANCH"; fi)
