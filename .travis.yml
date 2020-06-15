@@ -11,17 +11,19 @@ cache:
 
 env:
   global:
-    - secure: "bNn+GyQhVqqKiM2DMNYFixxRSASFjDlwizqVlPO+OBUCHG2zYYN+NtTocT7/gmuRBMEB71wpCyfUpa4ZWmdxSqYQXQGg9P38YozUm2x3xYcC24oB4EL8WN44gbDQ
-        EHftUVRSlQOJO02u+CgXqMJAUc8o1hrPSYDvBk7FBGDiTYo6mqeMJQPC12QGBUj3ezvP59hceJ3koDu8Lc56OTmcl7kEp2tH0/Fs1gUhBOy3+oaZIvatEnLe9TWDt03UTeBSEx5
-        7JbQW1haWquGQWg7VjMIMBe9DEuVwXBEdttc4zBVzIzSOAwpFEqR3JwB4EdO4Jwn9Z31Ca+Gc8/FTxRhjnWGN+eQ3TrCFxnJYRY0GTl0LstEp34ZbZxTep16rT1V/+Dad5FmpaZ
-        kXLQ3eZkSmiamTNkzfoJsa4jO5HUZZG085MkzAVGdktbZD/1uUFZ9rjxkpdo4j9P+dp5LxSxllYMSmrnBoOBwTwfIByMrXRwQkjf31xYNACQi8QQn2kNjnnNmzK52lkOR4eX6t8
-        arg3fxwp3mNzgW5I/Eo0ntttuQpMXLtkCHurZyZTKYkpO8caI5JyDuqjajrSFJbA7uXoj60uHvBgrFaOrwL7K3CkulRe5abOnN2z+7NfScJ2KHACP9Z7b5b5u2Tu/Jgq+e4yzmX
-        3oTL5nNCjMKwqSC7CK0="
+    - secure: "VB5LEPtULU++a1Cl0sQ8u22WLyK4QIqYtlDcmTCbW42P2DVcHwGTbZE7Xdi1c3XDUfhW6Bx0XSB019tu+lHSia94w01H+CpLy88ua90gI9jSy/eNu5dB2EQgpQKi
+               jrzAjnI+aG+SugAUEtvbKPt2I0b7Vj7kjDdq/8CasbpbUlWDZm19LugK4fEvhumyN+G8oZlx+p4rLoTh5PI/NADNTkv322Hg/8hqk24x00Z0XuJgoof/z+BI57Xy+TGUvyDaP6u
+               Xwtw7ewLLi3urkZCXehoSfZKfu5as/MS6MKhfpU0myN/8hSj6Px1SEx8mj9q8oQL6UwK2ePpQYFWqcC3EU8aSMppIUyXGDA/mVTSBYTXH6dc0/lBWcmzPQ3W2XbcT/wE4q10KEu
+               T9Yzj1nZ64j90ZcLtE97Z0z2x7L7BdfviEQ0F+iv6fSUxZO2qSSORZpMjSWkDOXKhZmwwP+KM9wvcPucfZnB6w7Qfu6dPUlgN2rMdBYxs7QV2wnRihKj7l2rgvclcqRONHRkySQ
+               b6ZHYjIwdx3SMo4OsMURxpegVyi04g8fJfcF625py4EmgAOpSkvrShjnQe2gIaF3SESqLG3YzNSEXB4bciu9+q88LLpt7VuF0D5adkiqC6UVKcKSShN3EMlTxCOPm2dhdLMlN4M
+               TxlnPqll84VYXUx85Mg="
 
 addons:
   sonarcloud:
     organization: mikhailzheltyshev
+    token:
+      secure: $SONAR_TOKEN
 
 script:
   - ./gradlew clean check
-  - ./gradlew jacocoTestReport sonarqube -Dsonar.login=${SONAR_TOKEN}
+  - ./gradlew jacocoTestReport sonarqube
