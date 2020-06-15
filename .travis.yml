@@ -1,5 +1,9 @@
+sudo: required
 language: java
 jdk: oraclejdk11
+
+services:
+  - docker
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -23,3 +27,12 @@ addons:
 script:
   - ./gradlew clean check
   - ./gradlew jacocoTestReport sonarqube
+  - ./gradlew bootJar
+
+after_success:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+  - export IMAGE_NAME=mihalichzh/ci-cd-spring-boot
+  - docker build -t $IMAGE_NAME:$COMMIT .
+  - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
+  - docker push $IMAGE_NAME
