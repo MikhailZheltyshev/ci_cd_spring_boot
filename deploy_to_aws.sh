@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+pwd
+ls -al
+
 # install AWS SDK
 pip install --user awscli
 export PATH=$PATH:$HOME/.local/bin
