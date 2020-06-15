@@ -28,4 +28,7 @@ script:
   - ./gradlew clean check
   - ./gradlew jacocoTestReport sonarqube
   - ./gradlew bootJar
-  - ./deploy_to_aws.sh
+
+deploy:
+  provider: script
+  script: bash deploy_to_aws.sh
